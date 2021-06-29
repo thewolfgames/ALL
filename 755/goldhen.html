@@ -27,11 +27,15 @@ function done() {
 }
 
 window.midExploit = function() {
-  var scripts = ['blob.js', 'jb.js', 'loader-755.js', 'hen213b.js', 'netcat.js'];
+  var scripts = ['blob.js', 'jb.js'];
 
   if (fwFromUA != "750" && fwFromUA != "751" && fwFromUA != "755") {
     die('Unsupported Firmware!');
   }
+
+  scripts.push('loader-' + fwFromUA + '.js');
+  scripts.push('goldhen-' + fwFromUA + '.js');
+  scripts.push('netcat.js');
 
   preloadScripts(scripts, go);
 }
@@ -44,9 +48,9 @@ window.postExploit = function() {
   }, 100);
 };
 </script>
-<script src="utils.js"></script>
-<script src="int64.js"></script>
-<script src="ps4.js"></script>
+<script src="./utils.js"></script>
+<script src="./int64.js"></script>
+<script src="./ps4.js"></script>
 <button id="input1" onfocus="handle2()"></button>
 <button id="input2"></button>
 <button id="input3" onfocus="handle2()"></button>
